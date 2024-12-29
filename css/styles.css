@@ -1,0 +1,189 @@
+
+/* Root attributes */
+
+:root {
+    /* Grey-scale Colors */
+    --color-dark: #0D0A08;
+    --color-light: #F8FBFF;
+    --color-gray-border: #A8ABAF;
+
+    --font-header: 'JetBrains Mono', monospace;
+    --font-body: 'IBM Plex Sans', sans-serif;
+}
+
+/* Defaults */
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-dark);
+    color: var(--color-dark);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: all 0.3s ease 0s;
+}
+
+h1, h2, h3, h4, h5, h6, a {
+    color: var(--color-light);
+    font-family: var(--font-header);
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    font-style: normal;
+}
+
+div, p, input, ul, ol, li {
+    color: var(--color-light);
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    font-style: normal;
+}
+
+button {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    border: 3px solid var(--color-dark);
+    border-radius: 34px;
+    padding: 11px 25px;
+    cursor: pointer;
+    pointer-events: all;
+
+    font-family: var(--font-header);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    font-style: normal;
+
+    transition: all 0.2s ease 0s;
+}
+
+button:hover, button:active {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    font-weight: 500;
+    transform: scale(1.04);
+    span {
+        opacity: 1;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    transition: all 0.3s ease 0s;
+}
+
+/* Game canvas */
+
+main, canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: var(--color-dark);
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 40px);
+    padding-inline: 20px;
+    height: 90px;
+    justify-content: space-between;
+    align-items: center;
+
+    #nav-name {
+        font-weight: 500;
+        font-size: 24px;
+        text-decoration: none;
+    }
+
+    #nav-links {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        a {
+            font-weight: 300;
+            padding: 3px 14px;
+            text-decoration: none;
+            transition: all 0.2s ease 0s;
+        }
+        a:hover {
+            font-weight: 500;
+            transform: translateY(-4px);
+        }
+        a.active {
+            font-weight: 500;
+            border-bottom: 1px solid var(--color-light);
+            /* transform: translateY(0px); */
+        }
+    }
+}
+
+/* Footer */
+
+footer {
+    margin-top: -1px; /* Fixes dumb 1 pixel visual bug on some devices */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    width: 100vw;
+    padding-block: 20px 40px;
+    align-items: center;
+    justify-content: center;
+
+    h1, a, p {
+        color: var(--color-dark);
+        font-weight: 400;
+    }
+    h1 {
+        font-size: 40px;
+        margin-block: 10px;
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 30px;
+        gap: 15px;
+        a {
+            font-family: var(--font-body);
+            font-weight: 400;
+            text-decoration: none;
+            padding: 2px 0px;
+            border-bottom: 2px solid var(--color-dark);
+            transition: all 0.2s ease 0s;
+        }
+        a:hover {
+            transform: translateY(-4px);
+        }
+        .links-separator {
+            color: var(--color-dark);
+            /* padding-inline: 10px; */
+            font-family: var(--font-header);
+            font-weight: 700;
+            padding-right: 2px;
+        }
+    }
+    #copyright {
+        font-weight: 200;
+        font-size: 16px;
+    }
+}
