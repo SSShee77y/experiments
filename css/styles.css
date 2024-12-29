@@ -29,6 +29,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, a {
     color: var(--color-light);
+    border-color: var(--color-light);
     font-family: var(--font-header);
     font-optical-sizing: auto;
     font-weight: 700;
@@ -39,6 +40,7 @@ h1, h2, h3, h4, h5, h6, a {
 
 div, p, input, ul, ol, li {
     color: var(--color-light);
+    border-color: var(--color-light);
     font-family: var(--font-body);
     font-optical-sizing: auto;
     font-weight: 400;
@@ -104,8 +106,8 @@ nav {
     display: flex;
     flex-direction: row;
     width: calc(100% - 40px);
-    padding-inline: 20px;
-    height: 90px;
+    padding-inline: calc((100vw - 100%) / 2 + 20px);
+    height: 100px;
     justify-content: space-between;
     align-items: center;
 
@@ -118,10 +120,11 @@ nav {
     #nav-links {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 12px;
         a {
             font-weight: 300;
-            padding: 3px 14px;
+            font-size: 16px;
+            padding: 3px 10px;
             text-decoration: none;
             transition: all 0.2s ease 0s;
         }
@@ -131,7 +134,7 @@ nav {
         }
         a.active {
             font-weight: 500;
-            border-bottom: 1px solid var(--color-light);
+            border-bottom: 1px solid;
             /* transform: translateY(0px); */
         }
     }
@@ -153,10 +156,13 @@ footer {
     h1, a, p {
         color: var(--color-dark);
         font-weight: 400;
+        /* font-size: 18px; */
     }
     h1 {
-        font-size: 40px;
-        margin-block: 10px;
+        font-family: var(--font-body);
+        font-size: 36px;
+        font-weight: 600;
+        margin-block: 0px;
     }
     .footer-links {
         display: flex;
@@ -167,11 +173,12 @@ footer {
             font-family: var(--font-body);
             font-weight: 400;
             text-decoration: none;
-            padding: 2px 0px;
-            border-bottom: 2px solid var(--color-dark);
+            padding: 3px 0px;
+            border-bottom: 1px solid;
             transition: all 0.2s ease 0s;
         }
         a:hover {
+            font-weight: 500;
             transform: translateY(-4px);
         }
         .links-separator {
@@ -185,5 +192,65 @@ footer {
     #copyright {
         font-weight: 200;
         font-size: 16px;
+    }
+}
+
+/* Highlighted Experiment Items */
+
+#experiments {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+    padding: 30px calc((100vw - 100%) / 2);
+}
+
+.experiment {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    max-width: 360px;
+    max-height: 300px;
+    padding: 10px;
+    border-radius: 30px;
+    transition: all 0.2s ease 0s;
+
+    h1, img {
+        object-fit: cover;
+        aspect-ratio: 8 / 5;
+        max-width: 100%;
+    }
+    
+}
+
+.experiment:hover {
+    transform: translateY(-4px);
+    border: 1px solid;
+}
+
+/* Color override classes */
+
+.white-on-black {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+
+    h1, h2, h3, h4, h5, h6, a, p, input, ul, ol, li {
+        color: var(--color-light);
+        border-color: var(--color-dark);
+    }
+}
+
+.black-on-white {
+    color: var(--color-dark);
+    background-color: var(--color-light);
+
+    h1, h2, h3, h4, h5, h6, a, p, input, ul, ol, li {
+        color: var(--color-dark);
+        border-color: var(--color-dark);
     }
 }

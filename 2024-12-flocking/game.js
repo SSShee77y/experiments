@@ -1,7 +1,7 @@
 let evaders = [];
 let points = 0;
 
-const spawnLimit = 200;
+const spawnLimit = 250;
 
 let evaderVelocityFactor = 4.5;
 let evaderAccelerationFactor = .20;
@@ -14,7 +14,7 @@ let cohesionStrength = 0;
 let separationStrength = 1;
 
 let velocitySlider, accelerationSlider, randomSteeringSlider, detectionSlider, alignmentSlider, cohesionSlider, separationSlider;
-let sliderOffset = {x: 200, y: 5};
+let sliderOffset = {x: 200, y: -105};
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -161,8 +161,6 @@ function flock() {
             
             evader.vel.limit(evaderVelocityFactor);
         }
-
-
     }
 }
 
