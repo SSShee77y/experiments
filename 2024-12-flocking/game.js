@@ -5,6 +5,7 @@ const spawnLimit = 200;
 
 let evaderVelocityFactor = 4.5;
 let evaderAccelerationFactor = .20;
+let randomSteeringFactor = .5;
 let evaderDetectionRange = 200;
 let panicSpeedMultiplier = 1;
 
@@ -12,7 +13,7 @@ let alignmentStrength = .01;
 let cohesionStrength = 0;
 let separationStrength = 1;
 
-let velocitySlider, accelerationSlider, detectionSlider, alignmentSlider, cohesionSlider, separationSlider;
+let velocitySlider, accelerationSlider, randomSteeringSlider, detectionSlider, alignmentSlider, cohesionSlider, separationSlider;
 let sliderOffset = {x: 200, y: 5};
 
 function setup() {
@@ -44,6 +45,10 @@ function setup() {
     separationSlider.position(sliderOffset.x + 1070, sliderOffset.y + 30);
     separationSlider.size(165);
 
+    randomSteeringSlider = createSlider(0, 1, 0, .05);
+    randomSteeringSlider.position(sliderOffset.x + 1280, sliderOffset.y + 30);
+    randomSteeringSlider.size(165);
+
         
     // Create some Evaders with random positions and velocity
     // let spawnLimit = Math.min(300, windowHeight * windowWidth / 6000 + 50)
@@ -68,6 +73,7 @@ function draw() {
     alignmentStrength = alignmentSlider.value();
     cohesionStrength = cohesionSlider.value();
     separationStrength = separationSlider.value();
+    randomSteeringFactor = randomSteeringSlider.value();
 
     // Display slider values
     fill(255);
@@ -79,11 +85,15 @@ function draw() {
     text(`Boid Alignment: ${alignmentStrength}`, sliderOffset.x + 651, sliderOffset.y + 25);
     text(`Boid Cohesion: ${cohesionStrength}`, sliderOffset.x + 861, sliderOffset.y + 25);
     text(`Boid Seperation: ${separationStrength}`, sliderOffset.x + 1071, sliderOffset.y + 25);
+    text(`Random Steering: ${randomSteeringFactor}`, sliderOffset.x + 1281, sliderOffset.y + 25);
 
     // Movement
     strokeWeight(1);
     flock();
-    randomSteering();
+
+    if (randomSteeringFactor > 0) {
+        randomSteering();
+    }
 
     for (let evader of evaders) {
         evader.update();
@@ -187,7 +197,7 @@ function mouseSteering() {
 function randomSteering() {
     for (let i = evaders.length - 1; i >= 0; i--) {
         let evader = evaders[i];
-        evader.vel.add(p5.Vector.random2D().setMag(evaderAccelerationFactor / 2));
+        evader.vel.add(p5.Vector.random2D().setMag(randomSteeringFactor));
         evader.vel.setMag(evaderVelocityFactor);
     }
 }
