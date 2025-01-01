@@ -67,7 +67,7 @@ function draw() {
         stroke(0);
         textSize(16);
         fill(100);
-        text(`[D/F] CoreRadius: ${evaderDetectionRange}p`, 10, 24);
+        text(`[D/F] CoreRadius: ${evaderDetectionRange * 2}p`, 10, 24);
         text(`[H] Hide UI, [J] Hide Circles`, 10, windowHeight-24);
         fill(0, 70, 80);
         text(`[E/R] HorizonRadius: ${eventHorizonRadius}p`, 10, 48);
