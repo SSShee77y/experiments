@@ -67,10 +67,10 @@ function draw() {
         stroke(0);
         textSize(16);
         fill(100);
-        text(`[D/F] CoreRadius: ${evaderDetectionRange * 2}p`, 10, 24);
+        text(`[E/R] CoreRadius: ${evaderDetectionRange * 2}p`, 10, 24);
         text(`[H] Hide UI, [J] Hide Circles`, 10, windowHeight-24);
         fill(0, 70, 80);
-        text(`[E/R] HorizonRadius: ${eventHorizonRadius}p`, 10, 48);
+        text(`[D/F] HorizonRadius: ${eventHorizonRadius}p`, 10, 48);
         fill(160, 70, 80);
         text(`[C/V] BoidVelocity: ${evaderVelocityFactor}ppf`, 10, 72);
         fill(inversePull ? 190 : 0, 50, 100);
