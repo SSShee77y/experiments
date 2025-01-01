@@ -7,14 +7,13 @@ let evaderVelocityFactor = 4.5;
 let evaderAccelerationFactor = .20;
 let randomSteeringFactor = .5;
 let evaderDetectionRange = 200;
-let panicSpeedMultiplier = 1;
 
 let alignmentStrength = .01;
 let cohesionStrength = 0;
 let separationStrength = 1;
 
 let velocitySlider, accelerationSlider, randomSteeringSlider, detectionSlider, alignmentSlider, cohesionSlider, separationSlider;
-let sliderOffset = {x: 200, y: -105};
+let sliderOffset = {x: 200, y: 10};
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -60,6 +59,11 @@ function setup() {
     
     // Display font
     textFont('JetBrains Mono', 20);
+}
+
+// On window resize
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -222,7 +226,7 @@ function getWrappedPositions(pos, borderDetection) {
             positions.push(createVector(positions[0].x, positions[0].y + windowHeight));
         }
     } else if (pos.x < borderDetection) {
-        positions.push(createVector(pos.x - windowWidth, pos.y));
+        positions.push(createVector(pos.x + windowWidth, pos.y));
         
         // Get wrapped of wrapped-x on y
         if (positions[0].y > windowHeight - borderDetection) {

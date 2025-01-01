@@ -19,7 +19,7 @@ class Entity {
     }
 
     update() {
-        this.pos.add(p5.Vector.mult(this.vel, (this.panic ? Math.max(1, this.panicFac * panicSpeedMultiplier) : 1)));
+        this.pos.add(p5.Vector.mult(this.vel, (this.panic ? 1 + this.panicFac : 1)));
         this.wrapAround();
     }
 
