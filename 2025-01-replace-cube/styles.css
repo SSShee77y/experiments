@@ -1,0 +1,126 @@
+:root {
+    --color-bg: #f9f5ec;
+    --color-off-white: #FBFBFC;
+    --color-dark: #030708;
+    --color-greyed: #c6c6c6;
+
+    --font-main: "century-gothic", sans-serif;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-off-white);
+
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease 0s;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    transition: all 0.3s ease 0s;
+}
+
+#bg-img {
+    position: absolute;
+    bottom: 0;
+    right: min(calc(50vw - 89vh), -12vh);
+    object-fit: cover;
+    object-position: center center;
+    height: 100vh;
+    width: min(100vw, auto);
+    z-index: -1;
+}
+
+.interact-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+
+    position: absolute;
+    left: max(40px, (75vw - 98vh));
+}
+
+h1 {
+    color: var(--color-dark);
+    font-family: var(--font-main);
+    
+    font-weight: 600;
+    font-size: 4vh;
+    line-height: 200%;
+    font-style: normal;
+
+    margin: 0;
+}
+
+p {
+    color: var(--color-dark);
+    font-family: var(--font-main);
+    font-weight: 400;
+    font-size: 2vh;
+    line-height: 200%;
+    font-style: normal;
+    margin-block: 0px 30px;
+}
+
+button {
+    width: fit-content;
+    background-color: var(--color-dark);
+    text-align: center;
+    border: .4vh solid var(--color-dark);
+    border-radius: 50px;
+    padding: .8vh 2vh;
+    cursor: pointer;
+    pointer-events: all;
+
+    color: var(--color-off-white);
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 1.8vh;
+    line-height: 150%;
+    font-style: normal;
+
+    transition: all 0.15s ease 0s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--color-dark);
+    transform: scale(1.04);
+    span {
+        opacity: 1;
+    }
+}
+
+button:active {
+    transform: scale(.94);
+}
+
+button[disabled=disabled], button:disabled {
+    transform: scale(1);
+    background-color: transparent;
+    border-color: var(--color-greyed);
+    color: var(--color-greyed)
+}
+
+@media only screen and (max-width: 1250px) {
+    .interact-container {
+        top: 50px;
+        left: calc(50vw - 20vh);
+    }
+
+    #bg-img {
+        bottom: -100px;
+    }
+}
